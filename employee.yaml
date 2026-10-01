@@ -1,0 +1,101 @@
+apiVersion: digital-employee/v1
+kind: DigitalEmployee
+metadata:
+  id: de_ecommerce_listing_copywriter
+  name: Listing/详情页文案
+  alias: 上架文案专员·小文
+  repo: de-ecommerce-listing-copywriter
+  card_no: 6.4-⑦
+  group: ecommerce
+  group_label: 电商商家
+  phase: P0（作为①捆绑包，验证"SKILL 复用不重做产品"的价值）
+  complexity: S（全图谱最低）
+  score: 高频5｜痛点3｜客单价2｜广度4｜价值4 ＝ **18/25**
+  price: 30-80 元/月（单独卖偏弱，建议与①捆绑）
+  channels:
+  - GitHub
+  - Coze扣子商店
+  - 淘宝（"标题优化工具+词库"¥19.9-49.9，虚拟老店类目已验证）
+  license: Proprietary
+  version: 1.0.0
+spec:
+  positioning: 上架文案专员·小文 ｜ ①视觉员工的配套另一半——图和文案是同一次上架的两半
+  users: 月上新频繁、标题 SEO 靠抄的一人店
+  boundary: 做：标题组合、卖点、详情页文案、合规扫描；不做：虚假功效宣称、极限词擦边
+  kpi: 标题生成→上架 ≤10 分钟；合规扫描覆盖率 100%；CTR 环比提升
+  roi_summary: 月省文案工时 15h≈¥450
+  demand_refs:
+  - D01
+  - D26
+  demand_support: 中等
+  demand_evidence: 中
+runtime:
+  system_prompt: persona/system-prompt.md
+  boundary: persona/boundary.md
+  kpi: persona/kpi.md
+deliverables:
+  skills:
+  - slug: ab-copy-variants
+    name: A/B 文案变体
+    kind: private
+    path: skills/ab-copy-variants
+    version: 1.0.0
+    maturity: contract-complete
+  - slug: keyword-combiner
+    name: 关键词组合
+    kind: private
+    path: skills/keyword-combiner
+    version: 1.0.0
+    maturity: contract-complete
+  - slug: sellingpoint-copy
+    name: 卖点文案
+    kind: private
+    path: skills/sellingpoint-copy
+    version: 1.0.0
+    maturity: contract-complete
+  workflows:
+  - slug: wf-ecom-listing-title
+    name: 关键词挖掘与标题组合
+    path: workflows/wf-ecom-listing-title
+    version: 1.0.0
+    phase: P0（随①捆绑）
+    calls:
+    - keyword-combiner
+  - slug: wf-ecom-listing-sellingpoint
+    name: 五点卖点生成
+    path: workflows/wf-ecom-listing-sellingpoint
+    version: 1.0.0
+    phase: P0
+    calls:
+    - sellingpoint-copy
+  - slug: wf-ecom-listing-compliance
+    name: 极限词/广告法合规扫描
+    path: workflows/wf-ecom-listing-compliance
+    version: 1.0.0
+    phase: P0
+    calls:
+    - compliance-word-scan
+  - slug: wf-ecom-listing-detail-copy
+    name: 详情页转化文案
+    path: workflows/wf-ecom-listing-detail-copy
+    version: 1.0.0
+    phase: P1
+    calls:
+    - conversion-structure-template
+  - slug: wf-ecom-listing-ctr-tracking
+    name: 上架后 CTR 追踪建议
+    path: workflows/wf-ecom-listing-ctr-tracking
+    version: 1.0.0
+    phase: P2
+    calls:
+    - ab-copy-variants
+  knowledge_base: kb/
+  connectors: connectors/bindings.yaml
+external_dependencies:
+- repo: agent-skills-core
+  version: 1.0.0
+  skills:
+  - compliance-word-scan
+  - conversion-structure-template
+  resolution: external
+spec_only_dependencies: []
