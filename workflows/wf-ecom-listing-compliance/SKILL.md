@@ -1,53 +1,67 @@
 ---
-name: wf-ecom-listing-ctr-tracking
+name: wf-ecom-listing-compliance
 description: >-
-  Listing/详情页文案 的「上架后 CTR 追踪建议」工作流：CTR 数据→标题 A/B 变体建议。触发方式：定时（每周）。
-  当用户要完成「上架后 CTR 追踪建议」这件事、或触发了上述条件时使用。
+  Listing/详情页文案 的「极限词/广告法合规扫描」工作流：文案→违禁词库→修改建议。触发方式：事件（文案定稿）。
+  当用户要完成「极限词/广告法合规扫描」这件事、或触发了上述条件时使用。
 license: Proprietary
+compatibility: >-
+  需要能读取工作区文件；若环境支持执行代码，将额外启用 scripts/ 下的确定性脚本路径。
+  跨 WorkBuddy / ChatGPT / DeepSeek Harness / Kimi Work / 豆包工作。
 metadata:
   author: PLATFORM
   version: "1.0.0"
   standard: agent-skills/v1
+  library: agent-skills-library
   layer: L2-workflow
   owner: de_ecommerce_listing_copywriter
+  repo: de-ecommerce-listing-copywriter
+  visibility: private_to_employee
+  delivery: employee
   complexity: S
-  phase: P2
-  source: new
+  phase: P0
+  source: library
 ---
 
-# 上架后 CTR 追踪建议
+# 极限词/广告法合规扫描
 
-> 归属：**Listing/详情页文案**（`de-ecommerce-listing-copywriter`）　触发：定时（每周）　
-> 复杂度 S　阶段 P2
+> 归属：**Listing/详情页文案**（`de-ecommerce-listing-copywriter`）　触发：事件（文案定稿）　
+> 复杂度 S　阶段 P0
 
 ## 一、这条工作流解决什么
 
-CTR 数据→标题 A/B 变体建议
+文案→违禁词库→修改建议
 
-**业务收益**：标题迭代从凭感觉变看数据
+**业务收益**：一次违规处罚即超全年订阅费
 
 ## 二、调用的 SKILL（必填列，逐条锁定版本）
 
 | 技能名 | slug | 来源仓 | 版本 |
 |---|---|---|---|
-| `A/B 文案变体` | `ab-copy-variants` | 本仓 | v1.0.0 |
+| `平台合规词扫描` | `compliance-word-scan` | core | v1.0.0 |
 
 > 公共技能来自 `agent-skills-core@1.0.0`，本仓库只做外部依赖引用，
 > **不内联复制**其正文——这是三层仓库体系的硬规则，避免同一能力多份副本各自漂移。
 
 ## 三、执行步骤（每步四要素齐备）
 
-### 步骤 1：CTR 数据
+### 步骤 1：文案
 
-- **做**：CTR 数据
+- **做**：文案
 - **输入来源**：用户提供的原始材料（工作流第 1 步没有「上一步」）/ 本员工知识库 `kb/` / 连接器只读数据；三者皆空时必须停在 G1 闸门
 - **依据与结论**：把本步结论对应到具体输入项
 - **未决 · 待填**：缺数据处写 `<待填>` 并给出获取方式
 
-### 步骤 2：标题 A/B 变体建议
+### 步骤 2：违禁词库
 
-- **做**：标题 A/B 变体建议
+- **做**：违禁词库
 - **输入来源**：步骤 1 的产出 / 本员工知识库 `kb/` / 连接器只读数据
+- **依据与结论**：把本步结论对应到具体输入项
+- **未决 · 待填**：缺数据处写 `<待填>` 并给出获取方式
+
+### 步骤 3：修改建议
+
+- **做**：修改建议
+- **输入来源**：步骤 2 的产出 / 本员工知识库 `kb/` / 连接器只读数据
 - **依据与结论**：把本步结论对应到具体输入项
 - **未决 · 待填**：缺数据处写 `<待填>` 并给出获取方式
 

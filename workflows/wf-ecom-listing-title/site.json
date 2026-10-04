@@ -1,0 +1,15 @@
+{
+  "name": "wf-ecom-listing-title",
+  "title": "关键词挖掘与标题组合",
+  "kind": "workflow",
+  "owner": "de-ecommerce-listing-copywriter",
+  "complexity": "S",
+  "phase": "P0（随①捆绑）",
+  "one_liner": "类目词→平台搜索逻辑→多平台标题",
+  "pages": [
+    "docs/使用手册.html",
+    "docs/使用示例.html",
+    "docs/用户场景.html",
+    "docs/架构与流程图.html"
+  ]
+}

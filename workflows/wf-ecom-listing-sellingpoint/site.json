@@ -1,0 +1,15 @@
+{
+  "name": "wf-ecom-listing-sellingpoint",
+  "title": "五点卖点生成",
+  "kind": "workflow",
+  "owner": "de-ecommerce-listing-copywriter",
+  "complexity": "S",
+  "phase": "P0",
+  "one_liner": "商品资料→卖点→分平台版本",
+  "pages": [
+    "docs/使用手册.html",
+    "docs/使用示例.html",
+    "docs/用户场景.html",
+    "docs/架构与流程图.html"
+  ]
+}

@@ -1,59 +1,66 @@
 ---
-name: wf-ecom-listing-title
+name: wf-ecom-listing-detail-copy
 description: >-
-  Listing/详情页文案 的「关键词挖掘与标题组合」工作流：类目词→平台搜索逻辑→多平台标题。触发方式：人工。
-  当用户要完成「关键词挖掘与标题组合」这件事、或触发了上述条件时使用。
+  Listing/详情页文案 的「详情页转化文案」工作流：卖点→转化结构模板→文案稿。触发方式：人工。
+  当用户要完成「详情页转化文案」这件事、或触发了上述条件时使用。
 license: Proprietary
+compatibility: >-
+  需要能读取工作区文件；若环境支持执行代码，将额外启用 scripts/ 下的确定性脚本路径。
+  跨 WorkBuddy / ChatGPT / DeepSeek Harness / Kimi Work / 豆包工作。
 metadata:
   author: PLATFORM
   version: "1.0.0"
   standard: agent-skills/v1
+  library: agent-skills-library
   layer: L2-workflow
   owner: de_ecommerce_listing_copywriter
+  repo: de-ecommerce-listing-copywriter
+  visibility: private_to_employee
+  delivery: employee
   complexity: S
-  phase: P0（随①捆绑）
-  source: library
+  phase: P1
+  source: new
 ---
 
-# 关键词挖掘与标题组合
+# 详情页转化文案
 
 > 归属：**Listing/详情页文案**（`de-ecommerce-listing-copywriter`）　触发：人工　
-> 复杂度 S　阶段 P0（随①捆绑）
+> 复杂度 S　阶段 P1
 
 ## 一、这条工作流解决什么
 
-类目词→平台搜索逻辑→多平台标题
+卖点→转化结构模板→文案稿
 
-**业务收益**：月省文案 10h≈¥300
+**业务收益**：替代详情页文案外包
 
 ## 二、调用的 SKILL（必填列，逐条锁定版本）
 
 | 技能名 | slug | 来源仓 | 版本 |
 |---|---|---|---|
-| `关键词组合` | `keyword-combiner` | 本仓 | v1.0.0 |
+| `转化结构模板` | `conversion-structure-template` | core | v1.0.0 |
 
 > 公共技能来自 `agent-skills-core@1.0.0`，本仓库只做外部依赖引用，
 > **不内联复制**其正文——这是三层仓库体系的硬规则，避免同一能力多份副本各自漂移。
 
 ## 三、执行步骤（每步四要素齐备）
 
-### 步骤 1：类目词
+### 步骤 1：卖点
 
-- **做**：类目词
+- **做**：卖点
 - **输入来源**：用户提供的原始材料（工作流第 1 步没有「上一步」）/ 本员工知识库 `kb/` / 连接器只读数据；三者皆空时必须停在 G1 闸门
 - **依据与结论**：把本步结论对应到具体输入项
 - **未决 · 待填**：缺数据处写 `<待填>` 并给出获取方式
 
-### 步骤 2：平台搜索逻辑
+### 步骤 2：转化结构模板
 
-- **做**：平台搜索逻辑
+- **做**：转化结构模板
 - **输入来源**：步骤 1 的产出 / 本员工知识库 `kb/` / 连接器只读数据
 - **依据与结论**：把本步结论对应到具体输入项
 - **未决 · 待填**：缺数据处写 `<待填>` 并给出获取方式
 
-### 步骤 3：多平台标题
+### 步骤 3：文案稿
 
-- **做**：多平台标题
+- **做**：文案稿
 - **输入来源**：步骤 2 的产出 / 本员工知识库 `kb/` / 连接器只读数据
 - **依据与结论**：把本步结论对应到具体输入项
 - **未决 · 待填**：缺数据处写 `<待填>` 并给出获取方式

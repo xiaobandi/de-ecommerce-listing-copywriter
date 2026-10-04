@@ -1,0 +1,15 @@
+{
+  "name": "sellingpoint-copy",
+  "title": "卖点文案",
+  "kind": "skill",
+  "owner": "de-ecommerce-listing-copywriter",
+  "complexity": "S",
+  "phase": "P0",
+  "one_liner": "卖点→分平台文案版本（卖点→文案）",
+  "pages": [
+    "docs/使用手册.html",
+    "docs/使用示例.html",
+    "docs/用户场景.html",
+    "docs/架构与流程图.html"
+  ]
+}

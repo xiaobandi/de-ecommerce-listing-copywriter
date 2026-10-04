@@ -1,0 +1,15 @@
+{
+  "name": "wf-ecom-listing-detail-copy",
+  "title": "详情页转化文案",
+  "kind": "workflow",
+  "owner": "de-ecommerce-listing-copywriter",
+  "complexity": "S",
+  "phase": "P1",
+  "one_liner": "卖点→转化结构模板→文案稿",
+  "pages": [
+    "docs/使用手册.html",
+    "docs/使用示例.html",
+    "docs/用户场景.html",
+    "docs/架构与流程图.html"
+  ]
+}
