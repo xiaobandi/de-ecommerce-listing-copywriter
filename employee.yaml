@@ -16,7 +16,7 @@ metadata:
   - GitHub
   - Coze扣子商店
   - 淘宝（"标题优化工具+词库"¥19.9-49.9，虚拟老店类目已验证）
-  license: Proprietary
+  license: Apache-2.0
   version: 1.0.0
 spec:
   positioning: 上架文案专员·小文 ｜ ①视觉员工的配套另一半——图和文案是同一次上架的两半

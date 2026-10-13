@@ -3,7 +3,7 @@ name: wf-ecom-listing-detail-copy
 description: >-
   Listing/详情页文案 的「详情页转化文案」工作流：卖点→转化结构模板→文案稿。触发方式：人工。
   当用户要完成「详情页转化文案」这件事、或触发了上述条件时使用。
-license: Proprietary
+license: Apache-2.0
 compatibility: >-
   需要能读取工作区文件；若环境支持执行代码，将额外启用 scripts/ 下的确定性脚本路径。
   跨 WorkBuddy / ChatGPT / DeepSeek Harness / Kimi Work / 豆包工作。
