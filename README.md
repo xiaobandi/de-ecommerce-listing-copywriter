@@ -5,6 +5,12 @@
 > **上架文案专员·小文**　·　电商商家　·　阶段 P0（作为①捆绑包，验证"SKILL 复用不重做产品"的价值）　·　
 > 复杂度 S（全图谱最低）　·　30-80 元/月（单独卖偏弱，建议与①捆绑）　·　定义卡 6.4-⑦
 
+## 演示（真实执行录播）
+
+![演示](workflows/wf-ecom-listing-compliance/docs/images/08-demo-run.gif)
+
+*真实执行回放（GIF 自动循环，非摆拍）· [▶ 观看完整版 MP4](workflows/wf-ecom-listing-compliance/docs/images/08-demo-run.mp4) · 台账见 [`reports/real-run/wf-ecom-listing-compliance.md`](reports/real-run/wf-ecom-listing-compliance.md)*
+
 ![架构](docs/images/architecture.svg)
 
 ## 效果（真实执行）
@@ -58,6 +64,7 @@ python3 tests/run.py            # 先跑一遍自检，确认环境与契约都�
 
 ```text
 de-ecommerce-listing-copywriter/
+├── employee.md            # 人读定义卡（12 主字段 + 2 扩展组，由 employee.yaml 生成）
 ├── employee.yaml          # 机器契约（能力清单 + 依赖锁）
 ├── dependencies.yaml      # 对 core 的外部依赖（含版本）
 ├── persona/               # 运行提示词 / 边界 / KPI
